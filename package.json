@@ -1,0 +1,20 @@
+{
+  "name": "node.js-course",
+  "version": "1.0.0",
+  "description": "Node.js course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "node",
+    "node js"
+  ],
+  "author": "Nick Trandasir <nick.trandasir@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.1.2",
+    "nodemon": "^2.0.20"
+  }
+}
