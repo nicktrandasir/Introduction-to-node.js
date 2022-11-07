@@ -1,17 +1,25 @@
-const Router = require("./customFramework/Router")
 const Application = require("./customFramework/Application")
+const userRouter = require("./src/user-router")
+const parseJson = require("./customFramework/parseJson")
+const parseUrl = require("./customFramework/parseUrl")
+const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3300
 
-const router = new Router();
 const app = new Application();
 
-router.get("/users", (req, res) => {
-  res.end("Данные с пользователями!")
-})
+app.use(parseJson)
+app.use(parseUrl("http://localhost:3300"))
 
+app.addRouter(userRouter)
 
+const start = async () => {
+  try {
+    await mongoose.connect("mongodb+srv://test:1q2w3e@cluster0.gklla50.mongodb.net/?retryWrites=true&w=majority");
+    app.listen(PORT, () => console.log(`Приложение запущено на ${PORT} порту`))
+  } catch (e) {
+    console.log(e)
+  }
+}
 
-app.addRouter(router)
-app.listen(PORT, () => console.log(`Приложение запущено на ${PORT} порту`))
-
+start();
