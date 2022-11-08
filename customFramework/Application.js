@@ -7,6 +7,13 @@ const EventEmitter = require("events");
 //   }
 // }
 
+const cors = (res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+   res.setHeader('Access-Control-Allow-Credentials', true);
+   res.setHeader('Access-Control-Allow-Methods', "POST, PUT, DELETE, OPTIONS");
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+};
+
 module.exports = class Application {
   constructor() {
     this.emitter = new EventEmitter();
@@ -29,6 +36,7 @@ module.exports = class Application {
 
         this.emitter.on(this._getRouteMask(path, method), (req, res) => {
           const handler = endpoint[method];
+          console.log('CURRENT_HANDLER =>', handler);
           handler(req, res)
         })
       })
@@ -37,6 +45,7 @@ module.exports = class Application {
 
   _createServer() {
     return http.createServer((req, res) => {
+     cors(res);
       let body = "";
       req.on("data", (chunk) => {
         body += chunk;

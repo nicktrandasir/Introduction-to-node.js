@@ -8,9 +8,8 @@ const PORT = process.env.PORT || 3300
 
 const app = new Application();
 
-app.use(parseJson)
 app.use(parseUrl("http://localhost:3300"))
-
+app.use(parseJson)
 app.addRouter(userRouter)
 
 const start = async () => {

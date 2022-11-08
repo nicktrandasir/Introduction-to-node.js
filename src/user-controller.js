@@ -11,8 +11,12 @@ const getUsers = async (req, res) => {
 }
 
 const addUser = async (req, res) => {
-  const user = await User.create(req.body);
-  res.send(user);
+  if(req.body.id) {
+    const user = await User.create(req.body);
+    res.send(user);
+  } else {
+    res.end('blya');
+  }
 }
 
 module.exports = {
