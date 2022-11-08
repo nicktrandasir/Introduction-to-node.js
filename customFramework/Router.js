@@ -13,8 +13,6 @@ module.exports = class Router {
     if (endpoint[method]) {
       throw new Error(`[${method}] по адресу ${path} уже существует`)
     }
-
-    console.log('endpoint[method] =>', endpoint[method]);
     endpoint[method] = handler;
   }
 
@@ -23,7 +21,6 @@ module.exports = class Router {
   }
 
   post(path, handler) {
-    console.log('POPAL!', path);
     this.request("POST", path, handler)
   }
 
