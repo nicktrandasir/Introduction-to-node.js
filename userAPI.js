@@ -3,7 +3,9 @@ const userRouter = require("./src/user/user-router")
 const parseJson = require("./customFramework/parseJson")
 const parseUrl = require("./customFramework/parseUrl")
 const mongoose = require('mongoose');
+const dotenv = require("dotenv")
 
+dotenv.config()
 const PORT = process.env.PORT || 3300
 
 const app = new Application();

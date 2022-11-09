@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "startAPI": "node firstAPI.js",
-    "devAPI": "nodemon firstAPI.js"
+    "startAPI": "node userAPI.js",
+    "devAPI": "nodemon userAPI.js"
   },
   "keywords": [
     "node",
@@ -18,6 +18,8 @@
   "dependencies": {
     "chalk": "^5.1.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "mongoose": "^6.7.1",
     "nodemon": "^2.0.20",
     "react-hook-form": "^7.39.1"
