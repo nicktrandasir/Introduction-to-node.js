@@ -1,5 +1,5 @@
 const Application = require("./customFramework/Application")
-const userRouter = require("./src/user-router")
+const userRouter = require("./src/user/user-router")
 const parseJson = require("./customFramework/parseJson")
 const parseUrl = require("./customFramework/parseUrl")
 const mongoose = require('mongoose');

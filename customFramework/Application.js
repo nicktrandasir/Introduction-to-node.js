@@ -1,18 +1,6 @@
 const http = require("http");
 const EventEmitter = require("events");
-
-// endpoint = {
-//   "/users": {
-//     "GET": handler
-//   }
-// }
-
-const cors = (res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Methods', "POST, PUT, DELETE, OPTIONS");
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-};
+const cors = require("../src/helpers/corsHeaders");
 
 module.exports = class Application {
   constructor() {
